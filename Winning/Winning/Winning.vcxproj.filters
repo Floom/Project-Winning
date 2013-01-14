@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Reusables">
+      <UniqueIdentifier>{14752b42-d57e-481e-8c45-8c90f8ce4225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\fmod">
+      <UniqueIdentifier>{c669308d-0b07-4f5c-a4d2-81ce824170a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\font">
+      <UniqueIdentifier>{14b729dd-6f12-4fab-a95b-953a2cfd0f6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\freeimage">
+      <UniqueIdentifier>{b10a4ee7-c694-4991-9419-4f0c88d24bfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\opengl">
+      <UniqueIdentifier>{0c7a580d-8656-43e5-9588-d2a00feda553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\file i/o">
+      <UniqueIdentifier>{d30126c9-ae7f-4a11-8f1b-542c4e6eee02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reusables\math">
+      <UniqueIdentifier>{1747cb82-7280-4e5b-9c59-73a0ba3e6d79}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\openGL.cpp">
+      <Filter>Reusables\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\glwindow.cpp">
+      <Filter>Reusables\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\ProfilesBin.cpp">
+      <Filter>Reusables\file i/o</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\Functions.cpp">
+      <Filter>Reusables</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\Camera.cpp">
+      <Filter>Reusables</Filter>
+    </ClCompile>
+    <ClCompile Include="freeimage\TextureManager.cpp">
+      <Filter>Reusables\freeimage</Filter>
+    </ClCompile>
+    <ClCompile Include="font\Font.cpp">
+      <Filter>Reusables\font</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="opengl\openGL.h">
+      <Filter>Reusables\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\wglext.h">
+      <Filter>Reusables\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\glwindow.h">
+      <Filter>Reusables\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="misc\ProfilesBin.h">
+      <Filter>Reusables\file i/o</Filter>
+    </ClInclude>
+    <ClInclude Include="misc\Functions.h">
+      <Filter>Reusables</Filter>
+    </ClInclude>
+    <ClInclude Include="misc\Vector2.h">
+      <Filter>Reusables\math</Filter>
+    </ClInclude>
+    <ClInclude Include="misc\Camera.h">
+      <Filter>Reusables</Filter>
+    </ClInclude>
+    <ClInclude Include="freeimage\TextureManager.h">
+      <Filter>Reusables\freeimage</Filter>
+    </ClInclude>
+    <ClInclude Include="freeimage\FreeImage.h">
+      <Filter>Reusables\freeimage</Filter>
+    </ClInclude>
+    <ClInclude Include="font\Font.h">
+      <Filter>Reusables\font</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

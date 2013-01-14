@@ -1,0 +1,1 @@
+Make sure when you commit the debug, ipch, and .user files/folders are deleted to prevent bloating and errors.
