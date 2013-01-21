@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <gl/gl.h>
 #include "Vector2.h"
+#include <opengl\glwindow.h>
 
 #define GL_BGRA 0x80E1
 #define GL_RGBA 0x1908
@@ -38,6 +39,9 @@ namespace Functions
 
 	void DrawRectCent(unsigned int sprite, float X, float Y, 
 		float Width, float Height, Color color, float Angle = 0);
+	
+	void DrawIsoView(unsigned int sprite, float X, float Y, 
+		float Width, float Height, Color color, float Angle = 0);
 
 	bool AABBCollision(Vector2 vPos, Vector2 Vec2, float Width, 
 		float Width2, float Height, float Height2);
@@ -59,7 +63,11 @@ namespace Functions
 	bool IsKeyDown(int letter);
 
 	bool IsKeyUp(int letter);
-	
+
+	int GetMouseX();
+
+	int GetMouseY();
+
 }
 
 #endif

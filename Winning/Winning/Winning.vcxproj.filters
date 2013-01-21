@@ -50,11 +50,14 @@
     <ClCompile Include="misc\Camera.cpp">
       <Filter>Reusables</Filter>
     </ClCompile>
-    <ClCompile Include="freeimage\TextureManager.cpp">
-      <Filter>Reusables\freeimage</Filter>
-    </ClCompile>
     <ClCompile Include="font\Font.cpp">
       <Filter>Reusables\font</Filter>
+    </ClCompile>
+    <ClCompile Include="TestingGround.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,14 +82,17 @@
     <ClInclude Include="misc\Camera.h">
       <Filter>Reusables</Filter>
     </ClInclude>
-    <ClInclude Include="freeimage\TextureManager.h">
-      <Filter>Reusables\freeimage</Filter>
-    </ClInclude>
     <ClInclude Include="freeimage\FreeImage.h">
       <Filter>Reusables\freeimage</Filter>
     </ClInclude>
     <ClInclude Include="font\Font.h">
       <Filter>Reusables\font</Filter>
+    </ClInclude>
+    <ClInclude Include="TestingGround.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

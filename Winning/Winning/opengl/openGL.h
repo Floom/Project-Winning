@@ -6,6 +6,7 @@ class OpenGL
 public:
     OpenGL();
 
+	bool FlipY;
     bool Init();
     void shutdown();
 

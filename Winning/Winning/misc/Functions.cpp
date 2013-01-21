@@ -51,6 +51,8 @@ namespace Functions
 		if((bits == 0) || (width == 0) || (height == 0))
 			return 0;
 
+		// Non Power of two texture fix...
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 		//generate an OpenGL texture ID for this texture
 		glGenTextures(1, &gl_texID);
@@ -123,7 +125,6 @@ namespace Functions
 		Functions::DrawLine((cellsize * gridsizew) + x ,(cellsize * gidsizeh)+y,(cellsize * gridsizew) + x, y ,1,1,1,1);
 	}
 
-
 	void DrawTriangle(unsigned int sprite, float X, float Y, float Z, 
 		float Width, float Height, Color color, float Angle)
 	{
@@ -158,17 +159,32 @@ namespace Functions
 		glBindTexture(GL_TEXTURE_2D, sprite);
 		glBegin(GL_QUADS);
 
-			glTexCoord2f(0,0);
-			glVertex2f(0, 0);
+		// Y goes up:
+			//glTexCoord2f(0,0);
+			//glVertex2f(0, 0);
 
-			glTexCoord2f(0,1);
+			//glTexCoord2f(0,1);
+			//glVertex2f(0, 1);
+
+			//glTexCoord2f(1,1);
+			//glVertex2f(1, 1);
+
+			//glTexCoord2f(1,0);
+			//glVertex2f(1,0);
+
+
+		// Y goes down:
+			glTexCoord2f(0, 1);
+			glVertex2f(0, 0);
+			
+			glTexCoord2f(0, 0);
 			glVertex2f(0, 1);
 
-			glTexCoord2f(1,1);
+			glTexCoord2f(1, 0);
 			glVertex2f(1, 1);
 
-			glTexCoord2f(1,0);
-			glVertex2f(1,0);
+			glTexCoord2f(1, 1);
+			glVertex2f(1, 0);
 			
 		glEnd();
 
@@ -188,6 +204,7 @@ namespace Functions
 
 		glBegin(GL_QUADS);
 
+		// Broke, i'll fix later.
 			glTexCoord2f(0,0);
 			glVertex2f(-0.5, 0.5);
 			glTexCoord2f(0,1);
@@ -196,6 +213,51 @@ namespace Functions
 			glVertex2f(0.5, -0.5);
 			glTexCoord2f(1,0);
 			glVertex2f(0.5,0.5);
+			
+		glEnd();
+
+		glPopMatrix();
+	}
+
+	void DrawIsoView(unsigned int sprite, float X, float Y, 
+		float Width, float Height, Color color, float Angle)
+	{
+		glPushMatrix();
+		//gluLookAt(1024/2, 768/2, 500, 1024/2, 768/2,0,0,1,0);
+		glTranslatef(X, Y, 1);
+		glRotatef(Angle,0,0,1);
+		glScalef(Width/1.2, Height/3 , 1);
+		glColor4f(color.R, color.G, color.B, color.A);
+		glBindTexture(GL_TEXTURE_2D, sprite);
+		glBegin(GL_QUADS);
+
+
+		// Y goes up:
+			//glTexCoord2f(0,0);
+			//glVertex2f(0, 0);
+
+			//glTexCoord2f(0,1);
+			//glVertex2f(0, 1);
+
+			//glTexCoord2f(1,1);
+			//glVertex2f(1, 1);
+
+			//glTexCoord2f(1,0);
+			//glVertex2f(1,0);
+
+
+		// Y goes down:
+			glTexCoord2f(0, 1);
+			glVertex2f(0.5, 0);
+			
+			glTexCoord2f(0, 0);
+			glVertex2f(0, 0.5);
+
+			glTexCoord2f(1, 0);
+			glVertex2f(0.5, 1);
+
+			glTexCoord2f(1, 1);
+			glVertex2f(1, 0.5);
 			
 		glEnd();
 
@@ -319,7 +381,6 @@ namespace Functions
 		(ext1 > TR.Y && ext2 > TR.Y));
 	}
 
-
 	void SetColor(float R, float G, float B, float A, Color &color)
 	{
 		// Simple function to wrap setting colors
@@ -337,6 +398,24 @@ namespace Functions
 	bool IsKeyUp(int letter)
 	{
 		return GetKeyState(letter) == 0;
+	}
+
+	int GetMouseX()
+	{
+		GLWindow *p = GLWindow::getInstance();
+
+		int x = p->GetMouseX();
+ 
+		return x;
+	}
+
+	int GetMouseY()
+	{
+		GLWindow *p = GLWindow::getInstance();
+
+		int y = p->GetMouseY();
+ 
+		return y;
 	}
 
 }

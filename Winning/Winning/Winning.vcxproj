@@ -65,22 +65,24 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;FreeImage.lib;fmodex_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="font\Font.cpp" />
-    <ClCompile Include="freeimage\TextureManager.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="misc\Camera.cpp" />
     <ClCompile Include="misc\Functions.cpp" />
     <ClCompile Include="misc\ProfilesBin.cpp" />
     <ClCompile Include="opengl\glwindow.cpp" />
     <ClCompile Include="opengl\openGL.cpp" />
+    <ClCompile Include="TestingGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="font\Font.h" />
     <ClInclude Include="freeimage\FreeImage.h" />
-    <ClInclude Include="freeimage\TextureManager.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="misc\Camera.h" />
     <ClInclude Include="misc\Functions.h" />
     <ClInclude Include="misc\ProfilesBin.h" />
@@ -88,6 +90,7 @@
     <ClInclude Include="opengl\glwindow.h" />
     <ClInclude Include="opengl\openGL.h" />
     <ClInclude Include="opengl\wglext.h" />
+    <ClInclude Include="TestingGround.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

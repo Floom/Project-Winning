@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <opengl\glwindow.h>
 #include <opengl\openGL.h>
+#include <Game.h>
 
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
@@ -13,12 +14,13 @@ int WINAPI WinMain(HINSTANCE hInstance,
 	//Set our window settings
     programWindow->ScreenX = 1024;
     programWindow->ScreenY = 768;
-    const int windowBPP = 32; // Bits per pixel 16/32 
+    const int windowBPP = 16; // Bits per pixel 16/32 
     const int windowFullscreen = false;
 
-	programWindow->FlipY = false; // False is the default, False: (0,0) = bottom left, True: (0,0) = top left.
+	programWindow->FlipY = true; // False is the default, False: (0,0) = bottom left, True: (0,0) = top left.
 
     OpenGL openGL;
+	openGL.FlipY = programWindow->FlipY; // Set openGls direction.
 
     programWindow->attachExample(&openGL);
 
@@ -37,13 +39,17 @@ int WINAPI WinMain(HINSTANCE hInstance,
         return 1;
     }
 
+
+	Game *newGame = new Game();
+
+
 	// GAME LOOP:
 	while(programWindow->Update())
     {
 		openGL.Update();
 
-
-
+		newGame->Update();
+		newGame->Draw();
 
 		programWindow->processEvents(); //Process any window events
 		programWindow->swapBuffers();

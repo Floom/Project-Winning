@@ -9,7 +9,7 @@
 
 OpenGL::OpenGL()
 {
-
+	FlipY = false;
 }
 
 bool OpenGL::Init()
@@ -48,7 +48,11 @@ void OpenGL::Resize(int width, int height)
     glLoadIdentity();
 
    //gluPerspective(45.0f, float(width) / float(height), 1.0f, 100.0f);
-	gluOrtho2D(0, width, 0, height);
+
+	if (FlipY == false)
+		gluOrtho2D(0, width, 0, height);
+	else
+		gluOrtho2D(0, width, height, 0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
