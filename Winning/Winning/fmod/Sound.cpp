@@ -4,6 +4,8 @@
 Sound::Sound()
 {
 	FMOD::System_Create(&system);
+	musicVolume = 1.0f;
+	sfxVolume = 1.0f;
 	system->init(100, FMOD_INIT_NORMAL, 0);
 }
 
@@ -17,20 +19,48 @@ FMOD::Sound* Sound::CreateSound(char *title,bool stream)
 	return data;
 }
 
-void Sound::PlaySoundA(FMOD::Sound *sound,float volume)
+void Sound::PlayMusic(FMOD::Sound *sound,float volume)
 {
-	system->playSound(FMOD_CHANNEL_FREE, sound, true, &channel);
+	system->playSound(FMOD_CHANNEL_FREE, sound, true, &musicChannel);
 
-	channel->setVolume(volume);		// Set the volume while it is paused.
+	musicChannel->setVolume(volume);		// Set the volume while it is paused.
 	
-	channel->setPaused(false);		// This is where the sound really starts.
+	musicChannel->setPaused(false);		// This is where the sound really starts.
 	
 
 }
 
-void Sound::PauseSound(bool pause)
+void Sound::PauseMusic(bool pause)
 {
-	channel->setPaused(pause);
+	musicChannel->setPaused(pause);
+}
+
+void Sound::ChangeVolumeMusic(float volume)
+{
+	musicChannel->setVolume(volume);
+	musicVolume = volume;
+}
+
+void Sound::PlaySFX(FMOD::Sound *sound,float volume)
+{
+	system->playSound(FMOD_CHANNEL_FREE, sound, true, &sfxChannel);
+
+	sfxChannel->setVolume(volume);		// Set the volume while it is paused.
+	
+	sfxChannel->setPaused(false);		// This is where the sound really starts.
+	
+
+}
+
+void Sound::PauseSFX(bool pause)
+{
+	sfxChannel->setPaused(pause);
+}
+
+void Sound::ChangeVolumeSFX(float volume)
+{
+	sfxChannel->setVolume(volume);
+	sfxVolume = volume;
 }
 
 Sound::~Sound()

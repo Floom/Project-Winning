@@ -13,8 +13,18 @@ public:
 	Sound();
 	~Sound();
 	FMOD::Sound* Sound::CreateSound(char *title,bool stream);
-	void PlaySoundA(FMOD::Sound *sound,float volume);
-	void PauseSound(bool pause);
+	void PlayMusic(FMOD::Sound *sound,float volume);
+	void PauseMusic(bool pause);
+	void ChangeVolumeMusic(float volume);
+
+	void PlaySFX(FMOD::Sound *sound,float volume);
+	void PauseSFX(bool pause);
+	void ChangeVolumeSFX(float volume);
+
 	FMOD::System *system;
-	FMOD::Channel *channel;
+	FMOD::Channel *musicChannel;
+	FMOD::Channel *sfxChannel;
+
+	float musicVolume;
+	float sfxVolume;
 };

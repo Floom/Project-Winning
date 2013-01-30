@@ -11,14 +11,8 @@ Game::Game(void)
 	kalimba = soundA->CreateSound("Assets\\Sound\\kalimba.mp3",true);
 
 	fontA->BuildFont("Times New Roman", 16, 16);
-
-	soundA->PlaySoundA(kalimba,0.5);
-	for(int i = 0; i < 1000000000;i++)
-	{
-
-	}
-	soundA->PauseSound(true);
-
+	soundA->PlaySFX(kalimba,soundA->musicVolume);
+	//soundA->PauseSound(true);
 }
 
 
@@ -29,8 +23,14 @@ Game::~Game(void)
 
 void Game::Update()
 {
+	
 	MouseX = Functions::GetMouseX();
 	MouseY = Functions::GetMouseY();
+	
+
+	soundA->system->update();
+	
+	soundA->ChangeVolumeSFX(soundA->sfxVolume - 0.0001);
 }
 
 void Game::Draw()
