@@ -1,0 +1,28 @@
+﻿Build started 1/30/2013 5:37:17 PM.
+     1>Project "C:\Users\Floom\Desktop\Project-Winning\Winning\Winning\Winning.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Game.cpp fmod\Sound.cpp main.cpp
+         Game.cpp
+         Generating Code...
+         Compiling...
+         main.cpp
+     1>c:\users\floom\desktop\project-winning\winning\winning\main.cpp(27): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Sound.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Floom\Desktop\Project-Winning\Winning\Debug\Winning.exe" /INCREMENTAL /NOLOGO opengl32.lib glu32.lib FreeImage.lib fmodex_vc.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Floom\Desktop\Project-Winning\Winning\Debug\Winning.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Floom\Desktop\Project-Winning\Winning\Debug\Winning.lib" /MACHINE:X86 Debug\Sound.obj
+         Debug\Font.obj
+         Debug\Game.obj
+         Debug\main.obj
+         Debug\Camera.obj
+         Debug\Functions.obj
+         Debug\ProfilesBin.obj
+         Debug\glwindow.obj
+         Debug\openGL.obj
+         Debug\TestingGround.obj
+         Winning.vcxproj -> C:\Users\Floom\Desktop\Project-Winning\Winning\Debug\Winning.exe
+     1>Done Building Project "C:\Users\Floom\Desktop\Project-Winning\Winning\Winning\Winning.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.26

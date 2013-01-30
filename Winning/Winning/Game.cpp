@@ -4,12 +4,21 @@
 
 Game::Game(void)
 {
-	testpic = Functions::LoadTexture("Assets\\rustle.png");
-
-
-
+	testpic = Functions::LoadTexture("Assets\\images\\rustle.png");
+	soundA = new Sound;
 	fontA = new Font();
+
+	kalimba = soundA->CreateSound("Assets\\Sound\\kalimba.mp3",true);
+
 	fontA->BuildFont("Times New Roman", 16, 16);
+
+	soundA->PlaySoundA(kalimba,0.5);
+	for(int i = 0; i < 1000000000;i++)
+	{
+
+	}
+	soundA->PauseSound(true);
+
 }
 
 

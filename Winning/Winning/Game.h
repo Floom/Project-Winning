@@ -1,5 +1,6 @@
 #pragma once
 #include "misc\Functions.h"
+#include "fmod\Sound.h"
 
 class Font;
 
@@ -9,6 +10,9 @@ private:
 	Font *fontA;
 	int MouseX;
 	int MouseY;
+
+	Sound *soundA;
+	FMOD::Sound *kalimba;
 
 	int testpic;
 
