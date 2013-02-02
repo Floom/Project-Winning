@@ -71,22 +71,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="fmod\Sound.cpp" />
     <ClCompile Include="font\Font.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="misc\Camera.cpp" />
     <ClCompile Include="misc\Functions.cpp" />
     <ClCompile Include="misc\ProfilesBin.cpp" />
     <ClCompile Include="opengl\glwindow.cpp" />
     <ClCompile Include="opengl\openGL.cpp" />
-    <ClCompile Include="TestingGround.cpp" />
+    <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="fmod\Sound.h" />
     <ClInclude Include="font\Font.h" />
     <ClInclude Include="freeimage\FreeImage.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="misc\Camera.h" />
     <ClInclude Include="misc\Functions.h" />
     <ClInclude Include="misc\ProfilesBin.h" />
@@ -94,7 +98,7 @@
     <ClInclude Include="opengl\glwindow.h" />
     <ClInclude Include="opengl\openGL.h" />
     <ClInclude Include="opengl\wglext.h" />
-    <ClInclude Include="TestingGround.h" />
+    <ClInclude Include="Tile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

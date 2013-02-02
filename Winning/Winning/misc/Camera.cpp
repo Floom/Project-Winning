@@ -21,7 +21,7 @@ void Camera::SetPos(float x, float y)
 void Camera::ChangePosBy(float x, float y)
 {
 	iXPos += x;
-	iYPos += y;
+	iYPos -= y;
 }
 
 void Camera::SetBorder(float _Left, float _Up, float _Right, float _Down, float _OffsetX, float _OffsetY)
@@ -37,7 +37,7 @@ void Camera::Update()
 	fMouseX = p->GetMouseX();
 	fMouseY = p->GetMouseY();
 
-	if (iXPos < Right)
+	if (iXPos < Right) // Magic Numbers, gotta fix.
 	{
 		if (fMouseX > (p->ScreenX - 24) && fMouseX < 1024 || p->KeyDown(VK_RIGHT) || p->KeyDown('D'))
 		{
@@ -52,20 +52,20 @@ void Camera::Update()
 		
 		}
 	}
-	if (iYPos < Up)
+	if (-iYPos > Up )
 	{
-		if (fMouseY > (p->ScreenY - 24) && fMouseY < 768 || p->KeyDown(VK_UP) || p->KeyDown('W'))
+		if (fMouseY < 20 && fMouseY > 0 || p->KeyDown(VK_UP) || p->KeyDown('W'))
 		{
-			ChangePosBy(0, fCamSpeed);
+			ChangePosBy(0, -fCamSpeed);
 		}
 	}
 
-	if (iYPos > Down)
+	if (iYPos > -Down)
 	{
-		if (fMouseY < 20 && fMouseY > 0 || p->KeyDown(VK_DOWN) || p->KeyDown('S'))
+		if (fMouseY > (p->ScreenY - 24) && fMouseY < 768 || p->KeyDown(VK_DOWN) || p->KeyDown('S'))
 		{
 
-			ChangePosBy(0, -fCamSpeed);
+			ChangePosBy(0, fCamSpeed);
 		
 		}
 	}

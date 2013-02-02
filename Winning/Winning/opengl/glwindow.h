@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <ctime>
 #include <string>
+#include <unordered_map>
+
 
 class OpenGL;
 
@@ -16,7 +18,6 @@ private:
     bool m_isFullscreen; 
 	bool curKeyState[256];
 	bool prevKeyState[256];
-
 
 	static GLWindow *window;
 	
@@ -34,9 +35,7 @@ private:
     void setupPixelFormat(void);
     OpenGL* getAttachedExample() { return m_openGL; }
 
-    float m_lastTime;
-
-	
+    float m_lastTime;	
 
 public:
 	std::string windowName;
@@ -52,6 +51,8 @@ public:
 	float GetMouseY();
 	POINT mousePos;
 
+	std::tr1::unordered_map<std::string, int> SpriteTable;
+
 	float ScreenX;
 	float ScreenY;
 
@@ -61,7 +62,6 @@ public:
 
     static LRESULT CALLBACK StaticWndProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam);
     LRESULT CALLBACK WndProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
 
 	static GLWindow* getInstance();
 

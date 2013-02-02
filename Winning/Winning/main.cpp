@@ -40,7 +40,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
     }
 
 
-	Game *newGame = new Game();
+	Game*newGame = new Game();
 
 
 	// GAME LOOP:

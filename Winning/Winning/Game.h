@@ -3,6 +3,8 @@
 #include "fmod\Sound.h"
 
 class Font;
+class Map;
+class Camera;
 
 class Game
 {
@@ -13,8 +15,10 @@ private:
 
 	Sound *soundA;
 	FMOD::Sound *kalimba;
+	
+	Map *map;
 
-	int testpic;
+	Camera *camera;
 
 	Color color;
 

@@ -15,6 +15,14 @@ namespace Functions
 
 	unsigned int LoadTexture(const char* filename, GLenum image_format, GLint internal_format, GLint level, GLint border)
 	{
+		GLWindow *p = GLWindow::getInstance();
+
+		// Hash map check -- HashMap is stored in the glwindow class.
+		if (p->SpriteTable.find(filename) != p->SpriteTable.end())
+		{
+			return p->SpriteTable[filename];
+		}
+
 		//image format
 		FREE_IMAGE_FORMAT fif = FIF_UNKNOWN;
 		//pointer to the image, once loaded
@@ -70,6 +78,8 @@ namespace Functions
 		FreeImage_Unload(dib);
 
 		//return success
+		//Make sure to also save the value..
+		p->SpriteTable[filename] = gl_texID;
 		return gl_texID;
 	}
 
@@ -226,7 +236,7 @@ namespace Functions
 		//gluLookAt(1024/2, 768/2, 500, 1024/2, 768/2,0,0,1,0);
 		glTranslatef(X, Y, 1);
 		glRotatef(Angle,0,0,1);
-		glScalef(Width/1.2, Height/3 , 1);
+		glScalef(Width, Height , 1);
 		glColor4f(color.R, color.G, color.B, color.A);
 		glBindTexture(GL_TEXTURE_2D, sprite);
 		glBegin(GL_QUADS);
