@@ -4,12 +4,14 @@
 #include <gl/gl.h>
 #include "Vector2.h"
 #include <opengl\glwindow.h>
+#include "Camera.h"
 
 #define GL_BGRA 0x80E1
 #define GL_RGBA 0x1908
 
 
-struct _RotRect {
+struct _RotRect 
+{
 	Vector2 C;
 	Vector2 S;
 	float ang;
@@ -21,6 +23,11 @@ struct Color
 	float B;
 	float G;
 	float A;
+};
+
+struct Triangle
+{
+	Vector2 P1, P2, P3;
 };
 
 namespace Functions
@@ -67,6 +74,11 @@ namespace Functions
 	int GetMouseX();
 
 	int GetMouseY();
+
+	bool TriangleCollision(Triangle tri, Vector2 entity, Camera *camera);
+
+	int Sign(float n);
+
 
 }
 

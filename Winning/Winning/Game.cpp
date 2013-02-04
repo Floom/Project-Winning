@@ -17,7 +17,7 @@ Game::Game(void)
 
 	fontA->BuildFont("Times New Roman", 16, 16);
 
-	soundA->PlaySFX(kalimba,soundA->musicVolume);
+	//soundA->PlaySFX(kalimba,soundA->musicVolume);
 	//soundA->PauseSound(true);
 
 	map = new Map();
@@ -42,6 +42,8 @@ void Game::Update()
 	soundA->system->update();
 
 	soundA->ChangeVolumeSFX(soundA->sfxVolume - 0.0001);
+
+	map->Update();
 }
 
 void Game::Draw()

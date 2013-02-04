@@ -59,6 +59,17 @@ void Map::Draw()
 	
 }
 
+void Map::Update()
+{
+	for (int x = 0; x < 50; ++x)
+	{
+		for (int y = 0; y < 50; ++y)
+		{
+			tileArray[x][y]->Update();	
+		}
+	}
+}
+
 void Map::AttachCameraToTiles(Camera *camera)
 {
 	for (int x = 0; x < 50; ++x)

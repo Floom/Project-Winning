@@ -428,4 +428,27 @@ namespace Functions
 		return y;
 	}
 
+	bool TriangleCollision(Triangle tri, Vector2 entity, Camera *camera)
+	{
+
+		// Detects if a point is within a triangle
+		float AB = ((tri.P1.X - camera->iXPos) - entity.X) * ((tri.P2.Y + camera->iYPos) - entity.Y) - 
+			((tri.P2.X - camera->iXPos) - entity.X) * ((tri.P1.Y + camera->iYPos) -  entity.Y);
+
+		float BC = ((tri.P2.X - camera->iXPos) - entity.X) * ((tri.P3.Y + camera->iYPos) -  entity.Y) - 
+			((tri.P3.X - camera->iXPos) - entity.X) * ((tri.P2.Y + camera->iYPos) -  entity.Y);
+
+		float CA = ((tri.P3.X - camera->iXPos) - entity.X) * ((tri.P1.Y + camera->iYPos) -  entity.Y) - 
+			((tri.P1.X - camera->iXPos) - entity.X) * ((tri.P3.Y + camera->iYPos) -  entity.Y);
+
+		return Sign(AB)==Sign(BC) && Sign(BC)==Sign(CA);
+	}
+
+
+	int Sign(float n)
+	{
+		return abs(n)/n;
+	}
+
+
 }

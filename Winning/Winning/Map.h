@@ -13,6 +13,7 @@ public:
 	float HighY;
 
 	void Draw();
+	void Update();
 	void AttachCameraToTiles(Camera *camera);
 
 
