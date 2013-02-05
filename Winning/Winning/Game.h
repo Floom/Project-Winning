@@ -1,6 +1,7 @@
 #pragma once
 #include "misc\Functions.h"
 #include "fmod\Sound.h"
+#include "Timer.h"
 
 class Font;
 class Map;
@@ -17,6 +18,8 @@ private:
 	FMOD::Sound *kalimba;
 	
 	Map *map;
+
+	Timer *timer;
 
 	Camera *camera;
 

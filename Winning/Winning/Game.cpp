@@ -13,12 +13,14 @@ Game::Game(void)
 
 	soundA = new Sound;
 
+	timer = new Timer;
+
 	kalimba = soundA->CreateSound("Assets\\Sound\\kalimba.mp3",true);
 
 	fontA->BuildFont("Times New Roman", 16, 16);
 
-	//soundA->PlaySFX(kalimba,soundA->musicVolume);
-	//soundA->PauseSound(true);
+	soundA->PlayMusic(kalimba,soundA->musicVolume);
+	soundA->PauseMusic(true);
 
 	map = new Map();
 	map->AttachCameraToTiles(camera);
@@ -39,6 +41,8 @@ void Game::Update()
 
 	camera->Update();
 
+	timer->Update();
+
 	soundA->system->update();
 
 	soundA->ChangeVolumeSFX(soundA->sfxVolume - 0.0001);
@@ -55,9 +59,11 @@ void Game::Draw()
 	map->Draw();
 
 
-	fontA->glPrint(100,100, 1, 0, 1, 1, "MouseX: %i", MouseX);
-	fontA->glPrint(100,80, 1, 0, 1, 1, "MouseY: %i", MouseY);
+	fontA->glPrint(100,100, 0, 1, 0, 1, "MouseX: %i", MouseX);
+	fontA->glPrint(100,120, 0, 1, 0, 1, "MouseY: %i", MouseY);
 
-	fontA->glPrint(100,200, 1, 0, 1, 1, "iXPos: %i", (int)camera->iXPos);
-	fontA->glPrint(100,220, 1, 0, 1, 1, "iYPos: %i", (int)camera->iYPos);
+	fontA->glPrint(100,160, 0, 1, 0, 1, "second counter: %i", timer->secondsPassed);
+
+	fontA->glPrint(100,200, 0, 1, 0, 1, "iXPos: %i", (int)camera->iXPos);
+	fontA->glPrint(100,220, 0, 1, 0, 1, "iYPos: %i", (int)camera->iYPos);
 }
